@@ -1,0 +1,25 @@
+const readline = require('readline');
+const rl = readline.createInterface({
+input: process.stdin,
+output: process.stdout,
+prompt: 'CMD> ',
+});
+
+let data = [];
+let dataLength = 3
+
+rl.prompt();
+
+rl.on('line', (line) => {
+data.push(line);
+
+if (data.length == dataLength){
+console.log(data);
+rl.close();
+}
+
+rl.prompt();
+}).on('close', () => {
+console.log('Have a great day!');
+process.exit(0);
+});
